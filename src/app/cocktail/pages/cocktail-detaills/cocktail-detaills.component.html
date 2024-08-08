@@ -1,0 +1,53 @@
+<div class="row" [formGroup]="cocktailValidate">
+    <div class="col-12">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="col-12 centerdiv">
+        <div class="card" style="width: 38rem;" *ngFor="let item of listCocktailsApiById">
+            <img src="{{item.strDrinkThumb}}" class="card-img-top" formControlName="image">
+            <div class="card-body">
+                <h5 class="card-title centerdiv" formControlName="name">{{item.strDrink}}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="col-12">
+                        <h5 class="card-title">Categoria</h5>
+                        <p class="card-text" formControlName="category">{{item.strCategory}}.</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="col-12 txtAling">
+                        <h5 class="card-title">Instrucciones En Ingles </h5>
+                        <p class="card-text" formControlName="instruccions">{{item.strInstructions}}</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="col-12 txtAling">
+                        <h5 class="card-title">Instrucciones En Español </h5>
+                        <p class="card-text" formControlName="instruccionsEs">{{item.strInstructionsES}}</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="col-12 txtAling">
+                        <h5 class="card-title">Instrucciones En Frances </h5>
+                        <p class="card-text" formControlName="instruccionsFr">{{item.strInstructionsFR}}</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="col-12 txtAling">
+                        <h5 class="card-title">Instrucciones En Italiano </h5>
+                        <p class="card-text" formControlName="instruccionsIt">{{item.strInstructionsIT}}</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="card-body centerdiv">
+                <a href="/home/home" class="card-link"> <i class="fa-solid fa-house-chimney" style="color: orangered;"></i>
+                    Home</a>
+                <a class="card-link"> <i class="fa-solid fa-star" style="color: yellow;"></i> Agregar a
+                    Favoritos</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>

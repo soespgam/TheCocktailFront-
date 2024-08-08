@@ -1,28 +1,24 @@
-<div class="row">
-  <div class="col-12">
-    <div class="row">
-      <nav class="navbar bg-light">
-        <div class="container col-10">
-          <a class="navbar-brand" href="/home/home">
-            <i class="fa-solid fa-martini-glass-citrus"></i>
-            Cocktails
-          </a>
-        </div>
-        <div class="col-2">
-          <i class="fa-solid fa-right-from-bracket" (click)="logOut.logouth()"></i>
-        </div>
-      </nav>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home/home">
+      <i class="fa-solid fa-martini-glass-citrus" style="color:orangered"></i>
+     <b>Cocktails</b>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav" >
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/home/CocktailsApi"><i class="fa-solid fa-clipboard-check" style="color: green;"></i>..Cocteles de la A a la Z</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/home/CocktailsBd"><i class="fa-solid fa-heart" style="color: red;"></i>..Cocteles Favoritos</a>
+        </li>
+      </ul>
     </div>
-
   </div>
-  <div class="col-12">
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Cocktails Guardados</a>
-      </li>
-    </ul>
+  <div class="col-2">
+    LOGOUT <i class="fa-solid fa-right-from-bracket" (click)="logOut.logouth()"></i>
   </div>
-</div>
+</nav>

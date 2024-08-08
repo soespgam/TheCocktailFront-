@@ -6,11 +6,17 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login/page/login-page/login-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CocktailsBdComponent } from './cocktail/pages/cocktails-bd/cocktails-bd.component';
+import { CocktailDetaillsComponent } from './cocktail/pages/cocktail-detaills/cocktail-detaills.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    CocktailsBdComponent,
+    CocktailDetaillsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

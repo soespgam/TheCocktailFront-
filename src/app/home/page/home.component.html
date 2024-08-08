@@ -1,5 +1,21 @@
 <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-12">
         <app-navbar></app-navbar>
     </div>
+    <div class="row">
+        <div class="col-12 centerdiv">
+            <img src="https://img.freepik.com/vector-gratis/texto-pancarta-coctel_1308-113783.jpg?t=st=1723058380~exp=1723061980~hmac=1ddd27898c3917757c6a62d3691ed1891054a41dfe8aaf431a8b0e2916a52a85&w=740"
+                class="img-fluid" alt="Sample image" style="width: 27pc;">
+        </div>
+        <div class="row">
+            <div class="col-6 centerdiv">
+                <button type="button" class="btn btn-outline-warning" (click)="redirect.redirect('/home/CocktailsApi')">Cocteles de la A a la Z</button>
+            </div>
+            <div class="col-6 centerdiv">
+                <button type="button" class="btn btn-outline-info" (click)="redirect.redirect('/home/CocktailsBd')">Cocteles Favoritos</button>
+            </div>
+        </div>
+
+    </div>
+
 </div>
