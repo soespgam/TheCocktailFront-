@@ -16,7 +16,6 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
     LoginPageComponent,
     CocktailsBdComponent,
     CocktailDetaillsComponent,
-    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +25,6 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], 
 })
 export class AppModule { }

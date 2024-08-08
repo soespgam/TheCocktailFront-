@@ -15,6 +15,7 @@ import Swal from 'sweetalert2'
 export class CocktailDetaillsComponent {
   public listCocktailsApiById: ResponseApi1[];
   private idcoctel: any;
+  public cocktailFavorite: any;
 
   public cocktailValidate: FormGroup = new FormGroup({
     id: new FormControl(''),
@@ -32,6 +33,7 @@ export class CocktailDetaillsComponent {
     this.listCocktailsApiById = [];
     this.idcoctel = 0;
     this.route.params.subscribe(params => this.idcoctel = params['id']);
+    this.cocktailFavorite = [];
   }
 
   public ngOnInit(): void {
@@ -43,6 +45,10 @@ export class CocktailDetaillsComponent {
       next: (value: any) => {
         console.log("coctel desde api", value.drinks)
         this.listCocktailsApiById = value.drinks;
+
+        for (let data of this.listCocktailsApiById) {
+          this.cocktailFavorite = data;
+        }
       },
       error: (err: any) => {
         console.log("ERR GET COM", err)
@@ -52,35 +58,35 @@ export class CocktailDetaillsComponent {
     );
   }
 
-  public createBody(): Cocktail {
-    return {
-        id: this.idcoctel,
-        name: this.cocktailValidate.get('id')?.value,
-        category: this.cocktailValidate.get('id')?.value,
-        image: this.cocktailValidate.get('id')?.value,
-        instruccions: this.cocktailValidate.get('id')?.value,
-        instruccionsEs: this.cocktailValidate.get('id')?.value,
-        instruccionsIt: this.cocktailValidate.get('id')?.value,
-        instruccionsFr: this.cocktailValidate.get('id')?.value,
-    }
-  }
 
   public saveFavorites(): void {
-    this.cocktailsService.guardarCocktaliBD(this.createBody()).subscribe({
-      next:()=>{
-        Swal.fire({
-          icon: "success",
-          title: "Seguardo Correctamente el coctel en Favoritos",
-          showConfirmButton: false,
-          timer: 1500
-        });
-        this.redirect.redirect('/home/home');
-      },
-      error: (err: any) => {
-        console.log("ERR GET COM", err)
-        alert('Error al guardar el coctel en Favoritos')
-      }
+    let cocktailFavorite = {
+      id: this.cocktailFavorite.idDrink,
+      name: this.cocktailFavorite.strDrink,
+      category: this.cocktailFavorite.strCategory,
+      image: this.cocktailFavorite.strDrinkThumb,
+      instruccions: this.cocktailFavorite.strInstructions,
+      instruccionsEs: this.cocktailFavorite.strInstructionsES,
+      instruccionsIt: this.cocktailFavorite.strInstructionsIT,
+      instruccionsFr: this.cocktailFavorite.strInstructionsFR,
     }
-    );
+
+    
+        this.cocktailsService.guardarCocktaliBD(cocktailFavorite).subscribe({
+          next:()=>{
+            Swal.fire({
+              icon: "success",
+              title: "Seguardo Correctamente el coctel en Favoritos",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            this.redirect.redirect('/home/home');
+          },
+          error: (err: any) => {
+            console.log("ERR GET COM", err)
+            alert('Error al guardar el coctel en Favoritos')
+          }
+        }
+        );
   }
 }
