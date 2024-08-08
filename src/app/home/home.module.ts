@@ -6,23 +6,26 @@ import { HomeComponent } from './page/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CocktailsApiComponent } from '../cocktail/pages/cocktails-api/cocktails-api.component';
 import { NavbarComponent } from '../shared/components/navbar/navbar.component';
+import { CocktailsBdComponent } from '../cocktail/pages/cocktails-bd/cocktails-bd.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     CocktailsApiComponent,
-    NavbarComponent
+    NavbarComponent,
+    CocktailsBdComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     HttpClientModule,
   ],
-  exports:[
-   CocktailsApiComponent,
-   NavbarComponent
+  exports: [
+    CocktailsApiComponent,
+    NavbarComponent,
+    CocktailsBdComponent
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeModule { }

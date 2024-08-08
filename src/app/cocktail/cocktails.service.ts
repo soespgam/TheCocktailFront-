@@ -41,4 +41,23 @@ export class CocktailsService {
         headers: this.headers
       });
   }
+
+  //BD
+
+  public getCocktailsBD(): Observable<Cocktail[]> {
+    return this.http.get<Cocktail[]>(`${environment.baseUrl}${environment.httpUrls.cocktail.getCocktails}`,
+      {
+        headers: this.headers
+      }
+    );
+  }
+
+  public deleteCocktailsBD(id: number): Observable<Cocktail> {
+    return this.http.delete<Cocktail>(`${environment.baseUrl}${environment.httpUrls.cocktail.delete(id)}`,
+      {
+        headers: this.headers
+      });
+  }
+ 
+
 }
