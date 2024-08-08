@@ -1,8 +1,9 @@
 export const enviromentUrls = {
     cocktail: {
         create: `/create-cocktail`,
-        update: (id: number) => `/update-cocktail/${id}`,
+        update: `/update-cocktail`,
         getCocktails: `/cocktails_saved`,
+        getCocktail: (id: number) =>`/getCoktailBd/${id}`,
         delete: (id: number) => `/delete-cocktail/${id}`,
         
         getCocktailsByLetter: (letter: string) => `/getCocktailsApiByLetter/${letter}`,

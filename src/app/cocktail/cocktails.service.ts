@@ -52,7 +52,23 @@ export class CocktailsService {
     );
   }
 
-  public deleteCocktailsBD(id: number): Observable<Cocktail> {
+
+  public getCocktailBD(id: number):Observable<Cocktail>{
+    return this.http.get<Cocktail>(`${environment.baseUrl}${environment.httpUrls.cocktail.getCocktail(id)}`,
+    {
+      headers: this.headers
+    });
+  }
+
+  public edit_Cocktail(coctel:Cocktail):Observable<Cocktail>{
+    return this.http.post<Cocktail>(`${environment.baseUrl}${environment.httpUrls.cocktail.update}`, coctel,
+      {
+        headers: this.headers
+      });
+  }
+
+
+  public deleteCocktailsBD(id: any): Observable<Cocktail> {
     return this.http.delete<Cocktail>(`${environment.baseUrl}${environment.httpUrls.cocktail.delete(id)}`,
       {
         headers: this.headers

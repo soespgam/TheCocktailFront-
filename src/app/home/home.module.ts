@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CocktailsApiComponent } from '../cocktail/pages/cocktails-api/cocktails-api.component';
 import { NavbarComponent } from '../shared/components/navbar/navbar.component';
 import { CocktailsBdComponent } from '../cocktail/pages/cocktails-bd/cocktails-bd.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,8 @@ import { CocktailsBdComponent } from '../cocktail/pages/cocktails-bd/cocktails-b
     CommonModule,
     HomeRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     CocktailsApiComponent,

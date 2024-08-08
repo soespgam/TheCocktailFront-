@@ -23,7 +23,6 @@ export class CocktailsApiComponent {
     this.letra = letter.target.value;
     this.cocktailsService.getCocktailsApi(letter.target.value).subscribe({
       next: (value: any) => {
-        console.log("cocteles desde api", value.drinks)
         this.listCocktailsApiByLetter = value.drinks;
       },
       error: (err: any) => {

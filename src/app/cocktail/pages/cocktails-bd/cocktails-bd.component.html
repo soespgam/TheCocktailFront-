@@ -22,15 +22,111 @@
                     <td>{{item.name}}</td>
                     <td>
                         <div class="row">
-                            <div class="col-4">
-                                <a href="/home/CocktailDetail/{{item.id}}"><i class="fa-solid fa-eye"></i></a>
-                            </div>
-                            <div class="col-4" ><i class="fas fa-edit" style="color: green;"></i></div>
-                            <div class="col-4"  (click)="deleteCocktailBD(item.id!)"><i class="fas fa-trash-alt" style="color: red;"></i></div>
+                            <div class="col-4"><i class="fa-solid fa-eye" type="button" data-bs-toggle="modal"
+                                    href="#verCoctel" (click)="getCoktail(item.id)"></i></div>
+                            <div class="col-4"><i class="fas fa-edit" type="button" data-bs-toggle="modal"
+                                    href="#editModal" (click)="getCoktail(item.id)" style="color: green;"></i></div>
+                            <div class="col-4" (click)="deleteCocktailBD(item.id!)"><i class="fas fa-trash-alt"
+                                    style="color: red;"></i></div>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+
+
+    <!-- //editModal -->
+    <div class="modal fade" id="editModal" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">Editar Cocktail</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="cocktailValidate">
+                        <div class="mb-3">
+                            <label class="form-label">Nombre</label>
+                            <input type="email" class="form-control" formControlName="name"
+                                placeholder="{{editCocktailBd.name}}">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Categoria</label>
+                            <input class="form-control" formControlName="category"
+                                placeholder="{{editCocktailBd.category}}">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Instrucciones En Ingles</label>
+                            <textarea class="form-control" formControlName="instruccions"
+                                placeholder="{{editCocktailBd.instruccions}}"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Instrucciones En Español</label>
+                            <textarea class="form-control" formControlName="instruccionsEs"
+                                placeholder="{{editCocktailBd.instruccionsEs}}"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Instrucciones En Frances</label>
+                            <textarea class="form-control" formControlName="instruccionsFr"
+                                placeholder="{{editCocktailBd.instruccionsFr}}"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Instrucciones En Italiano</label>
+                            <textarea class="form-control" formControlName="instruccionsIt"
+                                placeholder="{{editCocktailBd.instruccionsIt}}"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Imagen</label>
+                            <input class="form-control" formControlName="image" placeholder="{{editCocktailBd.image}}">
+                        </div>
+                        <button type="submit" class="btn btn-primary" (click)="updated_coktail()"
+                            data-bs-dismiss="modal">Editar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- //mostrarModal -->
+    <div class="modal fade" id="verCoctel" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3 centerdiv">
+                            <img src="{{editCocktailBd.image}}" style="width: 294px;">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nombre</label>
+                            <p class="form-control">{{editCocktailBd.name}}</p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Categoria</label>
+                            <p class="form-control" >{{editCocktailBd.category}}</p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Instrucciones En Ingles</label>
+                            <p class="form-control">{{editCocktailBd.instruccions}}</p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Instrucciones En Español</label>
+                            <p class="form-control">{{editCocktailBd.instruccionsEs}}</p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Instrucciones En Frances</label>
+                            <p class="form-control">{{editCocktailBd.instruccionsFr}}</p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Instrucciones En Italiano</label>
+                            <p class="form-control">{{editCocktailBd.instruccionsIt}}</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
